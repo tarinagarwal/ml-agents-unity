@@ -1,4 +1,4 @@
-# Some Agents I Made
+# Example Agents
 
 ## Basic
 
@@ -79,7 +79,7 @@
     was generated with action masking turned on.
   - Visual Observations: One corresponding to top-down view of GridWorld.
   - Goal Signal : A one hot vector corresponding to which color is the correct goal
-  for the Agent
+    for the Agent
 - Float Properties: Three, corresponding to grid size, number of green goals, and
   number of red goals.
 - Benchmark Mean Reward: 0.8
@@ -368,7 +368,6 @@
     - Recommended Maximum: 20
 - Benchmark Mean Reward : 2500
 
-
 ## Pyramids
 
 ![Pyramids](images/pyramids.png)
@@ -390,11 +389,12 @@
 - Benchmark Mean Reward: 1.75
 
 ## Match 3
+
 ![Match 3](images/match3.png)
 
 - Set-up: Simple match-3 game. Matched pieces are removed, and remaining pieces
-drop down. New pieces are spawned randomly at the top, with a chance of being
-"special".
+  drop down. New pieces are spawned randomly at the top, with a chance of being
+  "special".
 - Goal: Maximize score from matching pieces.
 - Agents: The environment contains several independent Agents.
 - Agent Reward Function (independent):
@@ -410,39 +410,41 @@ drop down. New pieces are spawned randomly at the top, with a chance of being
   - 37.0 for greedy heuristic (pick the highest-scoring valid move)
 
 ## Sorter
+
 ![Sorter](images/sorter.png)
 
- - Set-up: The Agent is in a circular room with numbered tiles. The values of the
- tiles are random between 1 and 20. The tiles present in the room are randomized
- at each episode. When the Agent visits a tile, it turns green.
- - Goal: Visit all the tiles in ascending order.
- - Agents: The environment contains a single Agent
- - Agent Reward Function:
-  - -.0002 Existential penalty.
-  - +1 For visiting the right tile
-  - -1 For visiting the wrong tile
- - BehaviorParameters:
-  - Vector Observations : 4 : 2 floats for Position and 2 floats for orientation
-  - Variable Length Observations : Between 1 and 20 entities (one for each tile)
+- Set-up: The Agent is in a circular room with numbered tiles. The values of the
+  tiles are random between 1 and 20. The tiles present in the room are randomized
+  at each episode. When the Agent visits a tile, it turns green.
+- Goal: Visit all the tiles in ascending order.
+- Agents: The environment contains a single Agent
+- Agent Reward Function:
+- -.0002 Existential penalty.
+- +1 For visiting the right tile
+- -1 For visiting the wrong tile
+- BehaviorParameters:
+- Vector Observations : 4 : 2 floats for Position and 2 floats for orientation
+- Variable Length Observations : Between 1 and 20 entities (one for each tile)
   each with 22 observations, the first 20 are one hot encoding of the value of the tile,
   the 21st and 22nd represent the position of the tile relative to the Agent and the 23rd
   is `1` if the tile was visited and `0` otherwise.
-  - Actions: 3 discrete branched actions corresponding to forward, backward,
+- Actions: 3 discrete branched actions corresponding to forward, backward,
   sideways movement, as well as rotation.
-  - Float Properties: One
-    - num_tiles: The maximum number of tiles to sample.
-      - Default: 2
-      - Recommended Minimum: 1
-      - Recommended Maximum: 20
-  - Benchmark Mean Reward: Depends on the number of tiles.
+- Float Properties: One
+  - num_tiles: The maximum number of tiles to sample.
+    - Default: 2
+    - Recommended Minimum: 1
+    - Recommended Maximum: 20
+- Benchmark Mean Reward: Depends on the number of tiles.
 
 ## Cooperative Push Block
+
 ![CoopPushBlock](images/cooperative_pushblock.png)
 
 - Set-up: Similar to Push Block, the agents are in an area with blocks that need
-to be pushed into a goal. Small blocks can be pushed by one agents and are worth
-+1 value, medium blocks require two agents to push in and are worth +2, and large
-blocks require all 3 agents to push and are worth +3.
+  to be pushed into a goal. Small blocks can be pushed by one agents and are worth
+  +1 value, medium blocks require two agents to push in and are worth +2, and large
+  blocks require all 3 agents to push and are worth +3.
 - Goal: Push all blocks into the goal.
 - Agents: The environment contains three Agents in a Multi Agent Group.
 - Agent Reward Function:
@@ -457,6 +459,7 @@ blocks require all 3 agents to push and are worth +3.
 - Benchmark Mean Reward: 11 (Group Reward)
 
 ## Dungeon Escape
+
 ![DungeonEscape](images/dungeon_escape.png)
 
 - Set-up: Agents are trapped in a dungeon with a dragon, and must work together to escape.
